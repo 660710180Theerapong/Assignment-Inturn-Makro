@@ -11,7 +11,7 @@ export default function Profile(){
             
             <h1>My Profile</h1>
             <div>
-                <Image src="/Cat64bit.png" width={300} height={300} alt="my_picture"/>
+                <Image src="/mypic.png" width={300} height={300} alt="my_picture"/>
 
                 <p>ธีรพงศ์ พูนขวัญ</p> <br/>
                 
