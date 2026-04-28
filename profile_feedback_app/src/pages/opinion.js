@@ -1,9 +1,9 @@
 import Head from "next/head"
-import Form from "../components/Form"
+import style from "@/styles/Opinion.module.css"
 
 export default function Opinion(){
     return(
-        <div role="form" label="form">
+        <div className={style.container} role="form" label="form">
 
             <div role="group" label="name">
                 <h2 id="name-label">ชื่อ</h2>
