@@ -1,5 +1,6 @@
 import { useState } from "react"
 import style from "@/styles/Opinion.module.css"
+import Head from "next/head"
 
 export default function Opinion(){
 
@@ -39,61 +40,70 @@ export default function Opinion(){
     }
 
     return(
-        <form className={style.container} onSubmit={handleSubmit}>
+        <div className={style.container}>
+            <Head>
+                <title>Opinion Form</title>
+            </Head>
 
-            <div>
-                <h2>ชื่อ</h2>
-                <input 
-                    type="text"
-                    name="name"
-                    placeholder="กรอกชื่อ-นามสกุล"
-                    onChange={handleChange}
-                />
+            <div className={style.container2}>
+            <h1>ฟอร์มกรอกความคิดเห็น</h1>
+            <form  onSubmit={handleSubmit}>
+
+                <div>
+                    <h2>ชื่อ</h2>
+                    <input 
+                        type="text"
+                        name="name"
+                        placeholder="กรอกชื่อ-นามสกุล"
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div>
+                    <h2>ที่อยู่อีเมล</h2>
+                    <input 
+                        type="email"
+                        name="email"
+                        placeholder="กรอกที่อยู่อีเมล"
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div>
+                    <h2>วันที่สร้าง</h2>
+                    <input 
+                        type="date"
+                        name="create_date"
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div>
+                    <h2>ให้คะแนน</h2>
+                    <select name="rating" onChange={handleChange}>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+
+                <div>
+                    <h2>ความคิดเห็น</h2>
+                    <textarea 
+                        name="opinion"
+                        placeholder="กรอกความคิดเห็นเพิ่มเติม"
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <button className={style.submit} type="submit">
+                    ส่งความคิดเห็น
+                </button>
+
+            </form>
             </div>
-
-            <div>
-                <h2>ที่อยู่อีเมล</h2>
-                <input 
-                    type="email"
-                    name="email"
-                    placeholder="กรอกที่อยู่อีเมล"
-                    onChange={handleChange}
-                />
-            </div>
-
-            <div>
-                <h2>วันที่สร้าง</h2>
-                <input 
-                    type="date"
-                    name="create_date"
-                    onChange={handleChange}
-                />
-            </div>
-
-            <div>
-                <h2>ให้คะแนน</h2>
-                <select name="rating" onChange={handleChange}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-
-            <div>
-                <h2>ความคิดเห็น</h2>
-                <textarea 
-                    name="opinion"
-                    placeholder="กรอกความคิดเห็นเพิ่มเติม"
-                    onChange={handleChange}
-                />
-            </div>
-
-            <button className={style.submit} type="submit">
-                ส่งความคิดเห็น
-            </button>
-
-        </form>
+        </div>
     )
 }
