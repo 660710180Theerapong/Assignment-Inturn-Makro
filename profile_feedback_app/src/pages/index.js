@@ -1,6 +1,7 @@
 import Head from "next/head"
 import Image from "next/image"
 
+
 export default function Profile(){
     return(  
       <>
@@ -10,7 +11,7 @@ export default function Profile(){
             
             <h1>My Profile</h1>
             <div>
-                <Image src="/mypic.png" width={300} height={300} alt="my_picture"/>
+                <Image src="/mypic.jpg" width={300} height={300} alt="my_picture"/>
 
                 <p>ธีรพงศ์ พูนขวัญ</p> <br/>
                 
