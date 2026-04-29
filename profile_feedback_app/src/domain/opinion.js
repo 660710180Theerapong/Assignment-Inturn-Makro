@@ -1,10 +1,10 @@
 export class Opinion {
-  constructor({ name, email, create_date, rating, opinion_text }) {
+  constructor({ name, email, create_date, rating, opinion }) {
     this.name = name;
     this.email = email;
     this.create_date = create_date;
     this.rating = rating;
-    this.opinion_text = opinion_text;
+    this.opinion_text = opinion;
 
     
     if (!name) {
