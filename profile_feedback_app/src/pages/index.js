@@ -10,7 +10,7 @@ export default function Profile(){
             </Head>
             
             
-            <div>
+            <div className={style.container2}>
                 <h1>My Profile</h1>
 
                 <Image src="/mypic.jpg" width={300} height={300} alt="my_picture"/>
