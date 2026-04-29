@@ -1,6 +1,6 @@
-import { submitOpinion } from "@/services/opinionService";
+import { submitOpinion } from "@/src/services/opinionSave";
 
-export default async function handler(req, res) {
+export default async function handleSubmit(req, res) {
   if (req.method === "POST") {
     try {
       const opinion = await submitOpinion(req.body);

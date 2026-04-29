@@ -1,57 +1,99 @@
-import Head from "next/head"
+import { useState } from "react"
 import style from "@/styles/Opinion.module.css"
 
 export default function Opinion(){
+
+    const [form, setForm] = useState({
+        name: "",
+        email: "",
+        create_date: "",
+        rating: "1",
+        opinion: ""
+    })
+
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        try {
+            const res = await fetch("/api/opinion", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(form)
+            })
+
+            const data = await res.json()
+            console.log("SUCCESS:", data)
+
+        } catch (err) {
+            console.error("ERROR:", err)
+        }
+    }
+
     return(
-        <div className={style.container} role="form" label="form">
+        <form className={style.container} onSubmit={handleSubmit}>
 
-            <div role="group" label="name">
-                <h2 id="name-label">ชื่อ</h2>
+            <div>
+                <h2>ชื่อ</h2>
                 <input 
-                type="text" 
-                label="กรอกชื่อ-นามสกุล" 
-                name="name" 
-                placeholder="กรอกชื่อ-นามสกุล"
+                    type="text"
+                    name="name"
+                    placeholder="กรอกชื่อ-นามสกุล"
+                    onChange={handleChange}
                 />
             </div>
 
-            <div role="group" label="email">
-                <h2 id="email">ที่อยู่อีเมล</h2>
+            <div>
+                <h2>ที่อยู่อีเมล</h2>
                 <input 
-                type="email" 
-                label="กรอกที่อยู่อีเมล" 
-                name="email" 
-                placeholder="กรอกที่อยู่อีเมล"
+                    type="email"
+                    name="email"
+                    placeholder="กรอกที่อยู่อีเมล"
+                    onChange={handleChange}
                 />
             </div>
 
-            <div role="group" label="date">
-                <h2 id="date-label">วันที่สร้าง</h2>
+            <div>
+                <h2>วันที่สร้าง</h2>
                 <input 
-                type="date" 
-                label="วันที่สร้าง" 
-                name="create_date"
+                    type="date"
+                    name="create_date"
+                    onChange={handleChange}
                 />
             </div>
 
-            <div role="group" label="rating">
-                <h2 id="rating-label">ให้คะแนน</h2>
-                <select label="เลือกคะแนน" name="rating">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+            <div>
+                <h2>ให้คะแนน</h2>
+                <select name="rating" onChange={handleChange}>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                 </select>
             </div>
 
-            <div role="textarea" label="rating">
-                <h2 id="opinion-label">ความคิดเห็น</h2>
-                <textarea label="opinion" placeholder="กรอกความคิดเห็นเพิ่มเติม"></textarea>
+            <div>
+                <h2>ความคิดเห็น</h2>
+                <textarea 
+                    name="opinion"
+                    placeholder="กรอกความคิดเห็นเพิ่มเติม"
+                    onChange={handleChange}
+                />
             </div>
 
-            <button className={style.submit} type="submit">ส่งความคิดเห็น</button>
-        </div>
-    )
+            <button className={style.submit} type="submit">
+                ส่งความคิดเห็น
+            </button>
 
+        </form>
+    )
 }
