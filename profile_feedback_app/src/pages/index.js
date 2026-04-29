@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export default function Profile(){
     return(  
-      <>
+      <div>
             <Head>
                 <title>My profile</title>
             </Head>
@@ -35,6 +35,6 @@ export default function Profile(){
                 <a href="https://github.com/660710180Theerapong">GitHub</a><br/>
                 <a href="https://linkedin.com/in/theerapong-poonkwan-a569ba3a0/">LinkIn</a>
             </div>
-      </>
+      </div>
     )
 }
