@@ -1,0 +1,24 @@
+body {
+    background: #f3f3f3;
+    color: black;
+}
+
+nav {
+  background: #1b171d;
+  margin-bottom: 10px ;
+  display: flex;
+  
+  justify-content: right;  
+
+
+}
+nav a{
+  color: #f3f3f3;
+  text-decoration: none;
+  margin: 30px 10px;
+  font-size: 20px;
+}
+
+nav a:hover{
+  color: #b468da;
+}
