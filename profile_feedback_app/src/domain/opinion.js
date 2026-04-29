@@ -4,7 +4,7 @@ export class Opinion {
     this.email = email;
     this.create_date = create_date;
     this.rating = rating;
-    this.opinion_text = opinion;
+    this.opinion = opinion;
 
     
     if (!name) {

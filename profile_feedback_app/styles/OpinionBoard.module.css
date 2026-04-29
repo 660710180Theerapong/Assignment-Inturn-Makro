@@ -1,0 +1,14 @@
+
+   .container{    
+      display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  
+ 
+ }
+     .container2{
+    padding-left: 200px;
+    padding-right: 200px;
+    justify-content: left;
+    background: #f3f0eb;
+    
+ }
