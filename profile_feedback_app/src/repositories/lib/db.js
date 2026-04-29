@@ -1,8 +1,10 @@
 import { Pool } from "pg";
 
 export const pool = new Pool({
-  connectionString: process.env.DATABASE_URL, // <- URL ของ Neon
+  connectionString: process.env.DATABASE_URL, 
   ssl: {
-    rejectUnauthorized: false,  // จำเป็นกับ Neon
+    rejectUnauthorized: false,  
   },
 });
+
+export default pool;
