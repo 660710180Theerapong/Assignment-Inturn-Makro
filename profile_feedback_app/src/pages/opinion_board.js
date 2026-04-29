@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import style from "@/styles/Opinion.module.css"
+import style from "@/styles/OpinionBoard.module.css"
 
 export default function Opinion(){
 
@@ -23,21 +23,25 @@ export default function Opinion(){
 
     return(
         <div className={style.container}>
-            <h2>กระดานความคิดเห็น</h2>
+            <div className={style.container2}>
+                <h2>กระดานความคิดเห็น</h2>
 
-            {opinions.length === 0 ? (
-                <p>ยังไม่มีความคิดเห็น</p>
-            ) : (
-                opinions.map((item) => (
-                    <div key={item.id}>
-                        <h3>{item.name}</h3>
-                        <p>{item.email}</p>
-                        <p>⭐ {item.rating}</p>
-                        <p>{item.opinion}</p>
-                        <hr />
-                    </div>
-                ))
-            )}
+                {opinions.length === 0 ? (
+                    <p>ยังไม่มีความคิดเห็น</p>
+                ) : (
+                    opinions.map((item) => (
+                        <div key={item.id}>
+                            <h3>{item.name}</h3>
+                            <p>{item.email}</p>
+                            <p>⭐ {item.rating}</p>
+                            <p>{item.opinion}</p>
+                            <hr />
+                        </div>
+                    ))
+                )}
+            </div>
+
         </div>
+        
     )
 }
